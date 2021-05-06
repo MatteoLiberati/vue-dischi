@@ -1,6 +1,6 @@
 <template>
   <header>
-    <a href="#"><img src="../assets/img/logo.png" alt="logo"/></a>
+    <slot></slot>
   </header>
 </template>
 

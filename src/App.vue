@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <!-- HEADER -->
-    <Header />
+    <Header>
+      <a href="#"><img src="@/assets/img/logo.png" alt="logo"/></a>
+    </Header>
     <!-- MAIN -->
     <Main />
   </div>
