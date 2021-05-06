@@ -1,0 +1,16 @@
+// MIXINS
+@mixin flex($type) {
+  display: flex;
+  @if $type == "vertical" {
+    align-items: center;
+  } @else if $type == "horizontal" {
+    justify-content: centre;
+  } @else if $type == "center" {
+    align-items: center;
+    justify-content: centre;
+  } @else if $type == "space-between" {
+    justify-content: space-between;
+  } @else if $type == "column" {
+    flex-direction: column;
+  }
+}
