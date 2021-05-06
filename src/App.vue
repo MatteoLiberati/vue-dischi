@@ -11,12 +11,9 @@
 // IMPORT
 import Header from "@/components/Header";
 import Main from "@/components/Main";
-import axios from "axios";
-
 export default {
   name: "App",
   components: {
-    axios,
     Header,
     Main,
   },
@@ -25,11 +22,11 @@ export default {
 
 <style lang="scss">
 // STYLE IMPORT
-@import "@/styles/mixins.scss";
 @import "~@fontsource/roboto/index.css";
 @import "~@fontsource/roboto/700.css";
 // GENERAL
 body {
+  @import "@/styles/mixins.scss";
   font-family: roboto, sans-serif;
   #app {
     height: 100vh;

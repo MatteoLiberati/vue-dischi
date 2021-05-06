@@ -4,7 +4,7 @@
   @if $type == "vertical" {
     align-items: center;
   } @else if $type == "horizontal" {
-    justify-content: centre;
+    justify-content: center;
   } @else if $type == "center" {
     align-items: center;
     justify-content: centre;
@@ -12,5 +12,10 @@
     justify-content: space-between;
   } @else if $type == "column" {
     flex-direction: column;
+  } @else if $type == "column-horizzontal" {
+    flex-direction: column;
+    align-items: center;
+  } @else if $type == "flex" {
+    display: flex;
   }
 }
