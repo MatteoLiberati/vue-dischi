@@ -1,7 +1,11 @@
 <template>
   <main>
     <div class="cards">
-      <Card v-for="(element, index) in album" :key="element + index" />
+      <Card
+        v-for="(element, index) in album"
+        :key="element + index"
+        :content="element"
+      />
     </div>
   </main>
 </template>
@@ -41,7 +45,8 @@ export default {
 main {
   flex-grow: 1;
   background-color: $background-color;
-  padding: 125px 0px 25px;
+  padding-top: 80px;
+  overflow: auto;
   .cards {
     @include flex("horizontal");
     flex-wrap: wrap;

@@ -21,16 +21,5 @@ export default {
 </script>
 
 <style lang="scss">
-// STYLE IMPORT
-@import "~@fontsource/roboto/index.css";
-@import "~@fontsource/roboto/700.css";
-// GENERAL
-body {
-  @import "@/styles/mixins.scss";
-  font-family: roboto, sans-serif;
-  #app {
-    height: 100vh;
-    @include flex(column);
-  }
-}
+@import "@/styles/general.scss";
 </style>

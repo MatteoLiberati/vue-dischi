@@ -1,0 +1,19 @@
+// STYLE IMPORT
+@import "~@fontsource/roboto/index.css";
+@import "~@fontsource/roboto/700.css";
+// GENERAL
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+
+  body {
+    @import "@/styles/mixins.scss";
+    font-family: roboto, sans-serif;
+
+    #app {
+      height: 100vh;
+      @include flex(column);
+    }
+  }
+}

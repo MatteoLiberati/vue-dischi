@@ -1,11 +1,13 @@
 <template>
   <div class="card">
-    <div class="image"></div>
-    <h2>Titolo</h2>
+    <div class="image">
+      <a href="#"><img :src="content.poster" :alt="content.title"/></a>
+    </div>
     <div class="content">
-      <span>Artista</span>
-      <span>Anno</span>
-      <span>Genere</span>
+      <h3>{{ content.title }}</h3>
+      <span>{{ content.author }}</span>
+      <span>{{ content.year }}</span>
+      <span>{{ content.genre }}</span>
     </div>
   </div>
 </template>
@@ -13,6 +15,7 @@
 <script>
 export default {
   name: "Card",
+  props: ["content"],
 };
 </script>
 
@@ -23,20 +26,26 @@ export default {
   @include flex("column-horizzontal");
   text-align: center;
   width: calc(100% / 8 -40px);
-  height: 360px;
+  height: 370px;
   margin: 20px;
   padding: 20px;
   background-color: $primary-color;
   .image {
-    width: 144px;
-    height: 144px;
-    background-color: yellow;
-  }
-  h2 {
-    color: $title-color;
-    font-weight: 400;
+    img {
+      width: 144px;
+      height: 144px;
+      object-fit: cover;
+    }
   }
   .content {
+    max-width: 144px;
+    h3 {
+      font-size: 1.3rem;
+      text-transform: uppercase;
+      color: $title-color;
+      font-weight: 400;
+      margin: 20px 0;
+    }
     span {
       display: block;
       color: $char-color;
