@@ -1,8 +1,9 @@
 <template>
   <main>
+    <Search v-if="loader" @selection="select" :list="musicgenre" />
     <div v-if="loader" class="cards">
       <Card
-        v-for="(element, index) in album"
+        v-for="(element, index) in albumFilter"
         :key="element + index"
         :content="element"
       />
@@ -17,28 +18,51 @@
 <script>
 import Card from "@/components/Card";
 import axios from "axios";
+import Search from "@/components/Search";
 export default {
   name: "Main",
   components: {
     Card,
-    axios,
+    Search,
   },
   data() {
     return {
       album: [],
+      albumFilter: [],
       loader: false,
+      musicgenre: [],
     };
   },
   created() {
     axios
       .get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((res) => {
+        res.data.response.forEach((element) => {
+          if (!this.musicgenre.includes(element.genre)) {
+            this.musicgenre.push(element.genre);
+          }
+        });
         this.album = res.data.response;
+        this.albumFilter = this.album;
         this.loader = true;
       })
       .catch((err) => {
         console.log(err);
       });
+  },
+  methods: {
+    // value = valore dell'option
+    select(value) {
+      if (value !== "All") {
+        console.log("enter");
+        this.albumFilter = this.album.filter((item) => {
+          return item.genre == value;
+        });
+      } else {
+        console.log("enter");
+        this.albumFilter = this.album;
+      }
+    },
   },
 };
 </script>
@@ -68,7 +92,7 @@ main {
     }
   }
 }
-@keyframes pulse{
+@keyframes pulse {
   to {
     transform: scale(1);
   }
