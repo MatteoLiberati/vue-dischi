@@ -8,7 +8,7 @@
       />
     </div>
     <div v-else class="loading">
-      <img src="@/assets/img/logo.png" alt="" />
+      <img src="@/assets/img/logo.png" alt="logo" />
       LOADING...
     </div>
   </main>
@@ -64,7 +64,16 @@ main {
     font-size: calc(1.8vw + 1.8%);
     img {
       width: 300px;
+      animation: pulse 1s alternate infinite;
     }
+  }
+}
+@keyframes pulse{
+  to {
+    transform: scale(1);
+  }
+  from {
+    transform: scale(1.1);
   }
 }
 </style>
