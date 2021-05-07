@@ -7,11 +7,15 @@
     justify-content: center;
   } @else if $type == "center" {
     align-items: center;
-    justify-content: centre;
+    justify-content: center;
   } @else if $type == "space-between" {
     justify-content: space-between;
   } @else if $type == "column" {
     flex-direction: column;
+  } @else if $type == "column-center" {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
   } @else if $type == "column-horizzontal" {
     flex-direction: column;
     align-items: center;

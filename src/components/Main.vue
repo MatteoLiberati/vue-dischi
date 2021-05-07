@@ -1,11 +1,15 @@
 <template>
   <main>
-    <div class="cards">
+    <div v-if="loader" class="cards">
       <Card
         v-for="(element, index) in album"
         :key="element + index"
         :content="element"
       />
+    </div>
+    <div v-else class="loading">
+      <img src="@/assets/img/logo.png" alt="" />
+      LOADING...
     </div>
   </main>
 </template>
@@ -22,6 +26,7 @@ export default {
   data() {
     return {
       album: [],
+      loader: false,
     };
   },
   created() {
@@ -29,7 +34,7 @@ export default {
       .get("https://flynn.boolean.careers/exercises/api/array/music")
       .then((res) => {
         this.album = res.data.response;
-        console.log(this.album);
+        this.loader = true;
       })
       .catch((err) => {
         console.log(err);
@@ -50,6 +55,16 @@ main {
   .cards {
     @include flex("horizontal");
     flex-wrap: wrap;
+  }
+  .loading {
+    height: 100%;
+    width: 100%;
+    @include flex("column-center");
+    color: $title-color;
+    font-size: calc(1.8vw + 1.8%);
+    img {
+      width: 300px;
+    }
   }
 }
 </style>
