@@ -41,10 +41,10 @@ export default {
           if (!this.musicgenre.includes(element.genre)) {
             this.musicgenre.push(element.genre);
           }
+          this.album = res.data.response;
+          this.albumFilter = this.album;
+          this.loader = true;
         });
-        this.album = res.data.response;
-        this.albumFilter = this.album;
-        this.loader = true;
       })
       .catch((err) => {
         console.log(err);
